@@ -3,6 +3,7 @@ const container = document.querySelector('.container');
 // add display
 const display = document.createElement('input');
 display.classList.add('display');
+display.disabled = true;
 display.value = 0;
 container.appendChild(display);
 
