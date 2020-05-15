@@ -65,6 +65,7 @@ a:hover {
 .display {
     grid-column-start: 1;
     grid-column-end: 5;
+    width: 405px;
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
@@ -130,6 +131,7 @@ button {
     margin: 10px;
     transition-duration: 0.5s;
     border-radius: 20px;
+    background-color: white;
     font-family: Menlo;
     height: 100px;
 }
