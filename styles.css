@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: auto 500px auto;
     grid-template-rows: 80px 90px 650px 50px;
-    font-family: Menlo;
+    font-family: Consolas;
 }
 
 h1 {
@@ -15,6 +15,7 @@ h1 {
     margin-top: 40px;
     margin-bottom: 0px;
     color: #293241;
+    font-size: 37px;
 }
 
 h2 {
@@ -71,7 +72,7 @@ a:hover {
     color: #ee6c4d;
     text-align: right;
     font-size: 60px;
-    font-family: Menlo;
+    font-family: Consolas;
     border: 4px solid #293241;
     border-color: #293241;
     outline: none;
@@ -98,14 +99,14 @@ a:hover {
 }
 
 .num, .dec {
-    font-size: 40px;
+    font-size: 45px;
     color: #293241;
     border: 4px solid #293241;
 }
 
 .eq {
     grid-area: 5 / 4 / 6 / 5;
-    font-size: 40px;
+    font-size: 45px;
     color: #e0522f;
     border: 4px solid #e0522f;
 }
@@ -131,7 +132,7 @@ button {
     margin: 10px;
     border-radius: 20px;
     background-color: white;
-    font-family: Menlo;
+    font-family: Consolas;
     height: 100px;
     transition: 0.5s;
 }
