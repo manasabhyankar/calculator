@@ -24,7 +24,7 @@ container.appendChild(operatorContainer);
 
 // add equals button
 const equalsButton = document.createElement('button');
-equalsButton.classList.add('equals');
+equalsButton.classList.add('eq');
 equalsButton.textContent = '=';
 container.appendChild(equalsButton);
 
@@ -89,73 +89,79 @@ function operate(operator, n1, n2) {
         return divide(n1, n2);
     }
 }
-
+/*
 // press events for numbers and operators
-document.addEventListener('keydown', f);
-let arr01 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-            , '+', '-', '*', '/', '.'];
-function f(e) {
-    if (arr01.includes(e.key)) {
+document.addEventListener('keydown', pressNumOpDec);
+let arr01 = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, '+', '-', '*', '/', '.'];
+function pressNumOpDec(e) {
+    if (arr01.includes(e.keyCode) || arr01.includes(e.key)) {
         if (display.value == 0 && e.key != '.') {
            display.value = ''; 
         }
         display.value += e.key;
     }    
 }
-
-// press events for backpace and enter
-document.addEventListener('keydown', g);
-function g(e) {
-    if (e.key == 'Backspace') {
-        display.value = display.value.substring(0, display.value.length - 1);
-    } else if (e.key == 'Enter') {
-        let arr = displayToArray();
-        prodQuo(arr);
-        sumDiff(arr);
-    }
-}
+*/
 
 // click events
-clickPressNumber();
-clickPressOperator();
-clickPressEquals();
-clickPressClear();
-clickPressDec();
-clickPressBack();
+const clicked = document.querySelector('.layout');
+clicked.addEventListener('click', clickNumber);
+clicked.addEventListener('click', clickOperator);
+clicked.addEventListener('click', clickEquals);
+clicked.addEventListener('click', clickClear);
+clicked.addEventListener('click', clickDec);
+clicked.addEventListener('click', clickBack);
 
-function clickPressNumber() {
-    const clicked = document.querySelector('.layout');
-    clicked.addEventListener('click', f); 
+// press events
+document.addEventListener('keydown', clickEquals);
+document.addEventListener('keydown', clickBack);
 
-    function f(e) {
-        if (e.target.classList.contains('num')) {
-            if (display.value == 0) {
-                display.value = '';
-            }
-            display.value += e.target.textContent;
+let arr01 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '.'];
+document.addEventListener('keydown', clickNumber);
+
+function clickNumber(e) {
+    if (e.target.classList.contains('num')) {
+        if (display.value == '0') {
+            display.value = '';
         }
-    } 
-}
+        display.value += e.target.textContent;
+    } else if (arr01.includes(e.key)) {
+        if (display.value == '0') {
+            display.value = '';
+        }
+        display.value += e.key;
+    }
+} 
 
-function clickPressOperator() {
-    const clicked = document.querySelector('.operatorContainer');
-    clicked.addEventListener('click', f);
-
-    function f(e) {
+function clickOperator(e) {
+    if (e.target.classList.contains('operator')) {
         display.value += e.target.textContent;
     }
 }
 
-function clickPressEquals() {
-    const clicked = document.querySelector('.container');
-    clicked.addEventListener('click', f);
+function clickEquals(e) {
+    if (e.target.classList.contains('eq') || e.key == 'Enter') {
+        let arrClickEquals = displayToArray();
+        prodQuo(arrClickEquals);
+        sumDiff(arrClickEquals);
+    }
+}
 
-    function f(e) {
-        if (e.target.classList.contains('equals')) {
-            let arr = displayToArray();
-            prodQuo(arr);
-            sumDiff(arr);
-        }
+function clickClear(e) {
+    if (e.target.classList.contains('clear')) {
+        display.value = '0';
+    }
+}
+
+function clickDec(e) {
+    if (e.target.classList.contains('dec')) {
+        display.value += '.';
+    }
+}
+
+function clickBack(e) {
+    if (e.target.classList.contains('back') || e.keyCode == 8) {
+        display.value = display.value.substring(0, display.value.length - 1);
     }
 }
 
@@ -183,6 +189,7 @@ function sumDiff(arr) {
             result = operate(arr[i], n1, n2);
         }
     }
+    console.log(display.value);
     display.value = result;
 }
 
@@ -192,37 +199,4 @@ function displayToArray() {
     display.value = display.value.replace(/[*]/gi, ",*,");
     display.value = display.value.replace(/[/]/gi, ",/,");
     return display.value.split(',');
-}
-
-function clickPressClear() {
-    const clicked = document.querySelector('.container');
-    clicked.addEventListener('click', f);
-
-    function f(e) {
-        if (e.target.classList.contains('clear')) {
-            display.value = '0';
-        }
-    }
-}
-
-function clickPressDec() {
-    const clicked = document.querySelector('.container');
-    clicked.addEventListener('click', f);
-
-    function f(e) {
-        if (e.target.classList.contains('dec')) {
-            display.value += '.';
-        }
-    }
-}
-
-function clickPressBack() {
-    const clicked = document.querySelector('.container');
-    clicked.addEventListener('click', f);
-
-    function f(e) {
-        if (e.target.classList.contains('back')) {
-            display.value = display.value.substring(0, display.value.length - 1);
-        }
-    }
 }

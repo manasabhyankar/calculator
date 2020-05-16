@@ -103,7 +103,7 @@ a:hover {
     border: 4px solid #293241;
 }
 
-.equals {
+.eq {
     grid-area: 5 / 4 / 6 / 5;
     font-size: 40px;
     color: #e0522f;
@@ -148,7 +148,7 @@ button {
     transform: scale(1.1);
 }
 
-.equals:hover, .operator:hover {
+.eq:hover, .operator:hover {
     border: 4px solid #e0522f;
     background-color: #e0522f;
     color: white;
