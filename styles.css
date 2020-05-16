@@ -46,13 +46,12 @@ a:hover {
     border-radius: 30px;
 
     grid: display;
-    transition-duration: 0.5s;
+    transition: 0.5s;
+    transition-delay: 0.1s;
 }
 
 .border:hover {
     background-color: #293241;
-    transition: 0.5s; 
-    transition-delay: 0.1s;
 }
 
 .container {
@@ -130,43 +129,42 @@ button {
     align-self: center;
     outline: none;
     margin: 10px;
-    transition-duration: 0.5s;
     border-radius: 20px;
     background-color: white;
     font-family: Menlo;
     height: 100px;
+    transition: 0.5s;
 }
 
 #clearBack:hover {
     background-color: #293241;
     color: white;
-    transition: 0.2s;
+    transform: scale(1.1);
 }
 
 #yellow:hover {
     background-color: white;
     color: #fca311;
-    transition: 0.2s;
+    transform: scale(1.1);
 }
 
 .equals:hover, .operator:hover {
     border: 4px solid #e0522f;
     background-color: #e0522f;
     color: white;
-    transition: 0.2s;
+    transition: 0.2s; /* hover over while in this state */
+    transform: scale(1.1);
 }
 
 .border:hover .num, .border:hover .dec {
     border: 4px solid white;
     color: white;
     background-color: #fca311;
-    transition-delay: 0.2s;
-    transition: 0.5s;
+    transition: 0.2s; /* hover over while in this state */
 }
 
 .border:hover .back, .border:hover .clear {
     border: 4px solid white;
     color: #293241;
-    transition: 0.5s;
-    transition-delay: 0.2s;
+    transition: 0.2s; /* hover over while in this state */
 }
