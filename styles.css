@@ -91,14 +91,12 @@ a:hover {
 
 .operator {
     justify-self: center;
-    vertical-align: bottom;
     font-size: 25px;
     color: #e0522f;
     border: 4px solid #e0522f;
     border-radius: 15px;
     height: 40px;
     width: 90px;
-    vertical-align: middle;
 }
 
 .num, .dec {
