@@ -189,7 +189,7 @@ function sumDiff(arr) {
             result = operate(arr[i], n1, n2);
         }
     }
-    console.log(display.value);
+//    console.log(display.value);
     display.value = result;
 }
 
