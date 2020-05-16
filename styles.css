@@ -145,7 +145,7 @@ button {
 #yellow:hover {
     background-color: white;
     color: #fca311;
-    transform: scale(1.1);
+    transform: scale(2);
 }
 
 .equals:hover, .operator:hover {
