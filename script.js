@@ -121,12 +121,12 @@ document.addEventListener('keydown', clickNumber);
 
 function clickNumber(e) {
     if (e.target.classList.contains('num')) {
-        if (display.value == '0') {
+        if (display.value == '0' && !e.target.classList.contains('dec')) {
             display.value = '';
         }
         display.value += e.target.textContent;
     } else if (arr01.includes(e.key)) {
-        if (display.value == '0') {
+        if (display.value == '0' && e.key != '.') {
             display.value = '';
         }
         display.value += e.key;
