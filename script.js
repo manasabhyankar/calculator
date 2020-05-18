@@ -131,12 +131,14 @@ function clickNumber(e) {
         }
         display.value += e.key;
     }
+    e.target.blur();
 } 
 
 function clickOperator(e) {
     if (e.target.classList.contains('operator')) {
         display.value += e.target.textContent;
     }
+    e.target.blur();
 }
 
 function clickEquals(e) {
@@ -145,24 +147,28 @@ function clickEquals(e) {
         prodQuo(arrClickEquals);
         sumDiff(arrClickEquals);
     }
+    e.target.blur();
 }
 
 function clickClear(e) {
     if (e.target.classList.contains('clear')) {
         display.value = '0';
     }
+    e.target.blur();
 }
 
 function clickDec(e) {
     if (e.target.classList.contains('dec')) {
         display.value += '.';
     }
+    e.target.blur();
 }
 
 function clickBack(e) {
     if (e.target.classList.contains('back') || e.keyCode == 8) {
         display.value = display.value.substring(0, display.value.length - 1);
     }
+    e.target.blur();
 }
 
 function prodQuo(arr) {
